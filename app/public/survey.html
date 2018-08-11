@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>
+        .bootstrap-iso .formden_header h2,
+        .bootstrap-iso .formden_header p,
+        .bootstrap-iso form {
+            font-family: Arial, Helvetica, sans-serif;
+            color: black
+        }
+
+        .bootstrap-iso form button,
+        .bootstrap-iso form button:hover {
+            color: white !important;
+        }
+
+        .asteriskField {
+            color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Bootstrap Modal -->
+    <div id="photomodal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="friendname" class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="imgToDisplay">
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+    <div class="bootstrap-iso">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <!-- <form action="/survey" method="post" name='form1' id='sform'> -->
+                    <form name='form1' id='sform'>
+                        <div class="form-group">
+                            <label class="control-label requiredField" for="name">
+                                Name (required)
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <input class="form-control" id="name" name="name" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label requiredField" for="name1">
+                                Link to Photo Image (Required)
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <input class="form-control" id="name1" name="name1" type="text" />
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You find it difficult to introduce yourself to other people.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You often get so lost in thoughts that you ignore or forget your surroundings.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio1" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio1" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio1" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio1" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio1" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio2" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio2" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio2" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio2" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio2" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You find it easy to stay relaxed even when there is some pressure.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio3" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio3" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio3" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio3" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio3" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You do not usually initiate conversations.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio4" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio4" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio4" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio4" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio4" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You rarely do something just out of sheer curiosity.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio5" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio5" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio5" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio5" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio5" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                Being organized is more important to you than being adaptable.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio6" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio6" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio6" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio6" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio6" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You are usually highly motivated and energetic.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio7" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio7" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio7" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio7" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio7" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You often feel as if you have to justify yourself to other people.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio8" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio8" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio8" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio8" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio8" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                You consider yourself more practical than creative.
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <div class="">
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio9" type="radio" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio9" type="radio" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio9" type="radio" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio9" type="radio" value="4" /> 4
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label class="radio">
+                                        <input name="radio9" type="radio" value="5" /> 5
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input class="btn btn-primary" name="submit" type="submit" id="sbtn" value='submit'>
+                                <!-- <input type='reset'  value='reset'> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/rodrigoduterte/FriendFinder">GitHub Repo</a></p>
+        </div>
+    </footer>
+    <script>
+        $("#sform").on("submit", function (event) {
+            event.preventDefault();
+            $.post("/api/friends", $("#sform").serialize(), function (response, status, jqXHR) {// success callback
+                console.log(response.name);
+                console.log(response.photo);
+                $("#imgToDisplay").attr("src",response.photo);
+                $("#friendname").html(response.name);
+                $("#photomodal").modal('show');
+            });
+        });
+    </script>
+</body>
+
+</html>
