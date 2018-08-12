@@ -3,7 +3,7 @@ var express = require('express');
 var urlencodedParser = bodyparser.urlencoded({ extended: true });
 var path = require('path');
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
